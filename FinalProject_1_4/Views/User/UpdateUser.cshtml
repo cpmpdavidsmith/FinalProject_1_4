@@ -1,0 +1,40 @@
+﻿@model User
+
+<h2>Update @Model.FirstName</h2>
+
+@using (Html.BeginForm("UpdateUserToDatabase", "User", "Post"))
+{
+    <input asp-for="UserID" type="hidden" value="@Model.UserID" />
+
+    <label asp-for="FirstName" class="control-label">First Name</label>
+    <input type="text" name="FirstName" class="form-control" value="@Model.FirstName" />
+
+    <label asp-for="LastName" class="control-label">Last Name</label>
+    <input type="text" name="LastName" class="form-control" value="@Model.LastName" />
+
+    <label asp-for="CategoryID" class="control-label">Category ID</label>
+    <input type="number" step="0.01" name="CategoryID" class="form-control" value="@Model.CategoryID" />
+
+    <label asp-for="UserTotalAllowedHours" class="control-label">Total Allowed Hours</label>
+    <input type="number" step="0.01" name="UserTotalAllowedHours" class="form-control" value="@Model.UserTotalAllowedHours" />
+
+    <label asp-for="UserScheduledHours" class="control-label">Scheduled Hours</label>
+    <input type="number" step="0.01" name="UserScheduledHours" class="form-control" value="@Model.UserScheduledHours" />
+
+    <label asp-for="UserCompletedHours" class="control-label">Completed Hours</label>
+    <input type="number" step="0.01" name="UserCompletedHours" class="form-control" value="@Model.UserCompletedHours" />
+
+    <label asp-for="UserAvailableScheduledHours" class="control-label">Available Scheduled Hours</label>
+    <input type="number" step="0.01" name="UserAvailableScheduledHours" class="form-control" value="@Model.UserAvailableScheduledHours" />
+
+    <label asp-for="UserAvailableFreeHours" class="control-label">Available Free Hours</label>
+    <input type="number" step="0.01" name="UserAvailableFreeHours" class="form-control" value="@Model.UserAvailableFreeHours" />
+
+    <label asp-for="UserPhoneNumber" class="control-label">Phone Number</label>
+    <input type="number" step="0.01" name="UserPhoneNumber" class="form-control" value="@Model.UserPhoneNumber" />
+
+    <input type="submit" value="Update User" class="btn btn-primary" />
+
+
+
+}

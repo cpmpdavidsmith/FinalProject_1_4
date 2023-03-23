@@ -1,0 +1,51 @@
+﻿@model User
+
+<h2>Create a New User</h2>
+
+@using (Html.BeginForm("InsertUserToDatabase", "User", "Post"))
+{
+    <input asp-for="UserID" type="hidden" value="" />
+
+    //General INFO
+    <label asp-for="FirstName" class="control-label">FirstName</label>
+    <input type="text" name="FirstName" class="form-control" value="" />
+
+    <label asp-for="LastName" class="control-label">LastName</label>
+    <input type="text" name="LastName" class="form-control" value="" />
+
+    <label asp-for="UserPhoneNumber" class="control-label">UserPhoneNumber</label>
+    <input type="text" name="UserPhoneNumber" class="form-control" value="" />
+
+    //Category INFO
+    <div class="form-group">
+        <label for="">Select a Category</label>
+        <select class="form-control" name="CategoryID" value="">
+            @foreach (var cat in Model.Categories)
+            {
+                <option value="@cat.CategoryID">@cat.CategoryID @cat.FirstName</option>
+            }
+        </select>
+    </div>
+
+    //Hours INFO
+    <label asp-for="UserTotalAllowedHours" class="control-label">UserTotalAllowedHours</label>
+    <input type="number" step="0.01" name="UserTotalAllowedHours" class="form-control" />
+
+    <label asp-for="UserScheduledHours" class="control-label">UserScheduledHours</label>
+    <input type="number" step="0.01" name="UserScheduledHours" class="form-control" />
+
+    <label asp-for="UserCompletedHours" class="control-label">UserCompletedHours</label>
+    <input type="number" step="0.01" name="UserCompletedHours" class="form-control" />
+
+    <label asp-for="UserAvailableScheduledHours" class="control-label">UserAvailableScheduledHours</label>
+    <input type="number" step="0.01" name="UserAvailableScheduledHours" class="form-control" />
+
+    <label asp-for="UserAvailableFreeHours" class="control-label">UserAvailableFreeHours</label>
+    <input type="number" step="0.01" name="UserAvailableFreeHours" class="form-control" />
+
+
+
+    //Submit button
+    <input type="submit" value="Create User" class="btn btn-primary" />
+}
+

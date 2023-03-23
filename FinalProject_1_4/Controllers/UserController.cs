@@ -45,7 +45,7 @@ namespace FinalProject_1_4.Controllers
         public IActionResult UpdateUserToDatabase(User user)
         {
             repo.UpdateUser(user);
-
+            
             return RedirectToAction("ViewUser", new { id = user.UserID });
         }
 
