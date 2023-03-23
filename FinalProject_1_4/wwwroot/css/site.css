@@ -18,6 +18,13 @@ html {
 }
 
 body {
-    background-image: url(7739317.jpg);
+    
     margin-bottom: 60px;
+}
+
+.homeimage {
+    background-image: url('../7739317.jpg');
+}
+.hometext {
+    color: white;
 }
