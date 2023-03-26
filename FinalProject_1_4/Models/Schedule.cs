@@ -1,9 +1,9 @@
 ﻿using System;
 namespace FinalProject_1_4.Models
 {
-	public class Manual
+	public class Schedule
 	{
-		public Manual()
+		public Schedule()
 		{
 		}
         //manual schedule inputs for days of the week 

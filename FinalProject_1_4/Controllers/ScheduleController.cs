@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject_1_4.Controllers
 {
-    public class ManualController : Controller
+    public class ScheduleController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()

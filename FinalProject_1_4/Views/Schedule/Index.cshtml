@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Schedule>
+
+<h2>Schedule Input</h2>
+
+<div style="display: block">
+    <a href="/Schedule/InsertSchedule/">Insert Scheduled Times</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Day</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+    </tr>
+
+    @foreach (var Schedule in @Model)
+    {
+        <tr>
+            <td><a href=/Schedule/ViewSchedule/@schedule.Day>@schedule.Day</a></td>
+            <td>@schedule.Monday</td>
+            <td>@schedule.Tuesday</td>
+            <td>@schedule.Wednesday</td>
+            <td>@schedule.Thursday</td>
+            <td>@schedule.Friday</td>
+            <td>@schedule.Saturday</td>
+            <td>@schedule.Sunday</td>
+        </tr>
+    }
+
+</table>
