@@ -25,7 +25,7 @@ namespace FinalProject_1_4.Models
 
         public void DeleteSchedule(Schedule Schedule)
         {
-            _conn.Execute("DELETE FROM Schedule WHERE Day = @Day;", new { day = Schedule.Day });//might have to add more properties to this method 
+            _conn.Execute("DELETE FROM Schedule WHERE UserID = @UserID;", new { UserID = Schedule.UserID });//might have to add more properties to this method 
         }
 
         public IEnumerable<Schedule> GetAllSchedule()
@@ -39,20 +39,20 @@ namespace FinalProject_1_4.Models
             return _conn.Query<Category>("SELECT * FROM CATEGORIES;");
         }
 
-        public Schedule GetSchedule(int Day)
+        public Schedule GetSchedule(int UserID)
         {
-            return _conn.QuerySingle<Schedule>("SELECT * FROM SCHEDULE WHERE DAY = @Day",
-                new { Day = Day });
+            return _conn.QuerySingle<Schedule>("SELECT * FROM SCHEDULE WHERE UserID = @UserID",
+                new { UserID = UserID });
         }
 
         public void InsertSchedule(Schedule scheduleToInsert)//continue
         {
-            _conn.Execute("INSERT INTO SCHEDULE (DAY, USERID, MONDAY, TUESDAY, WEDNESDAY, THURSDAY," +
-                "FRIDAY, SATURDAY, SUNDAY) VALUES(@day, @userid @monday, @tuesday, @wednesday, @thursday," +
+            _conn.Execute("INSERT INTO SCHEDULE (USERID, MONDAY, TUESDAY, WEDNESDAY, THURSDAY," +
+                "FRIDAY, SATURDAY, SUNDAY) VALUES(@userid, @monday, @tuesday, @wednesday, @thursday," +
                 "@friday, @saturday, @sunday);",             
             new
             {
-                day = scheduleToInsert.Day,
+                userid = scheduleToInsert.UserID,
                 monday = scheduleToInsert.Monday,
                 tuesday = scheduleToInsert.Tuesday,
                 wednesday = scheduleToInsert.Wednesday,
@@ -65,12 +65,11 @@ namespace FinalProject_1_4.Models
 
         public void UpdateSchedule(Schedule schedule)
         {
-            _conn.Execute("UPDATE schedule SET Day = @day, UserID = @userid Monday = @monday, Tuesday = @tuesday," +
+            _conn.Execute("UPDATE schedule SET Monday = @monday, Tuesday = @tuesday," +
                 "Wdenesday = @wednesday, Thursday = @thursday, Friday = @friday, Saturday = @saturday," +
                 "Sunday = @sunday WHERE UserID = @userid", 
                 new
                 {
-                    day = schedule.Day,
                     userid = schedule.UserID,
                     monday = schedule.Monday,
                     tuesday = schedule.Tuesday,
@@ -78,7 +77,7 @@ namespace FinalProject_1_4.Models
                     thursday = schedule.Thursday,
                     friday = schedule.Friday,
                     saturday = schedule.Saturday,
-                    Sunday = schedule.Sunday
+                    sunday = schedule.Sunday
                 });
         }
     }
