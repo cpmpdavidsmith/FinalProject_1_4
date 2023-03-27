@@ -1,8 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace FinalProject_1_4.Models
 {
-	public interface IManualRepository
+	public interface IScheduleRepository
 	{
-	}
+        public IEnumerable<Schedule> GetAllSchedule();
+        public Schedule GetSchedule(int schedule);
+        public void UpdateSchedule(Schedule schedule);
+
+        public void InsertSchedule(Schedule scheduleToInsert);
+        public IEnumerable<Category> GetCategories();
+
+        public Schedule AssignCategory();
+        public void DeleteSchedule(Schedule schedule);
+    }
 }
 

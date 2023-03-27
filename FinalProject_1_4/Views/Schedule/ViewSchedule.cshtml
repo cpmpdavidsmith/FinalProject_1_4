@@ -1,6 +1,40 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Schedule
 
+<h3>@Model.UserID Information</h3>
+
+<table class="table">
+    <tr>
+        <th>UserID</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+        <th>CategoryID</th>
+    </tr>
+    <tr>
+        <td>@Model.UserID</td>
+        <td>@Model.Monday</td>
+        <td>@Model.Tuesday</td>
+        <td>@Model.Wednesday</td>
+        <td>@Model.Thursday</td>
+        <td>@Model.Friday</td>
+        <td>@Model.Saturday</td>
+        <td>@Model.Sunday</td>
+    </tr>
+</table>
+
+<div style="display: block">
+    <a href="/Schedule/UpdateSchedule/@Model.UserID">Update this Schedule</a>
+</div>
+
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteSchedule", "Schedule", "Post"))
+    {
+        <input type="hidden" asp-for="UserID" value="@Model.UserID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this schedule" />
+    }
+</div>

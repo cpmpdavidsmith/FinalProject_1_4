@@ -1,6 +1,37 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model Schedule
 
+<h2>Update @Model.UserID Schedule</h2>
+
+@using (Html.BeginForm("UpdateScheduleToDatabase", "Schedule", "Post"))
+{
+    <input asp-for="UserID" type="hidden" value="@Model.UserID" />
+
+    <label asp-for="Day" class="control-label">Day</label>
+    <input type="number" step="0.01" name="Day" class="form-control" value="@Model.Day" />
+
+    <label asp-for="Monday" class="control-label">Monday</label>
+    <input type="number" step="0.01" name="Monday" class="form-control" value="@Model.Monday" />
+
+    <label asp-for="Tuesday" class="control-label">Tuesday</label>
+    <input type="number" step="0.01" name="Tuesday" class="form-control" value="@Model.Tuesday" />
+
+    <label asp-for="Wednesday" class="control-label">Wednesday</label>
+    <input type="number" step="0.01" name="Wednesday" class="form-control" value="@Model.Wednesday" />
+
+    <label asp-for="Thursday" class="control-label">Thursday</label>
+    <input type="number" step="0.01" name="Thursday" class="form-control" value="@Model.Thursday" />
+
+    <label asp-for="Friday" class="control-label">Friday</label>
+    <input type="number" step="0.01" name="Friday" class="form-control" value="@Model.Friday" />
+
+    <label asp-for="Saturday" class="control-label">Saturday</label>
+    <input type="number" step="0.01" name="Saturday" class="form-control" value="@Model.Saturday" />
+
+    <label asp-for="Sunday" class="control-label">Sunday</label>
+    <input type="number" step="0.01" name="Sunday" class="form-control" value="@Model.Sunday" />
+
+    <input type="submit" value="Update Schedule" class="btn btn-primary" />
+
+
+
+}

@@ -25,7 +25,7 @@ namespace FinalProject_1_4.Models
 
         public void DeleteSchedule(Schedule Schedule)
         {
-            _conn.Execute("DELETE FROM Schedule WHERE Day = @Day;", new { day = Schedule.Day });
+            _conn.Execute("DELETE FROM Schedule WHERE Day = @Day;", new { day = Schedule.Day });//might have to add more properties to this method 
         }
 
         public IEnumerable<Schedule> GetAllSchedule()
@@ -47,45 +47,38 @@ namespace FinalProject_1_4.Models
 
         public void InsertSchedule(Schedule scheduleToInsert)//continue
         {
-            _conn.Execute("INSERT INTO USER (FIRSTNAME, LASTNAME, USERPHONENUMBER, CATEGORYID," +
-                "USERTOTALALLOWEDHOURS, USERSCHEDULEDHOURS, USERCOMPLETEDHOURS," +
-                "USERAVAILABLESCHEDULEDHOURS, USERAVAILABLEFREEHOURS) VALUES(@firstname, @lastname, @userphonenumber, @categoryid," +
-                "@usertotalallowedhours, @userscheduledhours," +
-                "@usercompletedhours, @useravailablescheduledhours," +
-                "@useravailablefreehours);",
+            _conn.Execute("INSERT INTO SCHEDULE (DAY, USERID, MONDAY, TUESDAY, WEDNESDAY, THURSDAY," +
+                "FRIDAY, SATURDAY, SUNDAY) VALUES(@day, @userid @monday, @tuesday, @wednesday, @thursday," +
+                "@friday, @saturday, @sunday);",             
             new
             {
-                firstname = userToInsert.FirstName,
-                lastname = userToInsert.LastName,
-                userphonenumber = userToInsert.UserPhoneNumber,
-                categoryid = userToInsert.CategoryID,
-                usertotalallowedhours = userToInsert.UserTotalAllowedHours,
-                userscheduledhours = userToInsert.UserScheduledHours,
-                usercompletedhours = userToInsert.UserCompletedHours,
-                useravailablescheduledhours = userToInsert.UserAvailableScheduledHours,
-                useravailablefreehours = userToInsert.UserAvailableFreeHours
+                day = scheduleToInsert.Day,
+                monday = scheduleToInsert.Monday,
+                tuesday = scheduleToInsert.Tuesday,
+                wednesday = scheduleToInsert.Wednesday,
+                thursday = scheduleToInsert.Thursday,
+                friday = scheduleToInsert.Friday,
+                saturday = scheduleToInsert.Saturday,
+                sunday = scheduleToInsert.Sunday,
             });
         }
 
-        public void UpdateUser(User user)
+        public void UpdateSchedule(Schedule schedule)
         {
-            _conn.Execute("UPDATE user SET FirstName = @firstname, LastName = @lastname," +
-                "UserPhoneNumber = @userphonenumber," +
-                "UserTotalAllowedHours = @usertotalallowedhours, " +
-                "UserScheduledHours = @userscheduledhours, UserCompletedHours = " +
-                "@usercompletedhours, UserAvailableScheduledHours = @useravailablescheduledhours," +
-                "UserAvailableFreeHours = @useravailablefreehours WHERE UserID = @userid",
+            _conn.Execute("UPDATE schedule SET Day = @day, UserID = @userid Monday = @monday, Tuesday = @tuesday," +
+                "Wdenesday = @wednesday, Thursday = @thursday, Friday = @friday, Saturday = @saturday," +
+                "Sunday = @sunday WHERE UserID = @userid", 
                 new
                 {
-                    firstname = user.FirstName,
-                    lastname = user.LastName,
-                    userphonenumber = user.UserPhoneNumber,
-                    usertotalallowedhours = user.UserTotalAllowedHours,
-                    userscheduledhours = user.UserScheduledHours,
-                    usercompletedhours = user.UserCompletedHours,
-                    useravailablescheduledhours = user.UserAvailableScheduledHours,
-                    useravailablefreehours = user.UserAvailableFreeHours,
-                    userid = user.UserID
+                    day = schedule.Day,
+                    userid = schedule.UserID,
+                    monday = schedule.Monday,
+                    tuesday = schedule.Tuesday,
+                    wednesday = schedule.Wednesday,
+                    thursday = schedule.Thursday,
+                    friday = schedule.Friday,
+                    saturday = schedule.Saturday,
+                    Sunday = schedule.Sunday
                 });
         }
     }

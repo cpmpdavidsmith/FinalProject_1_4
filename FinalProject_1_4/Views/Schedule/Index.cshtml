@@ -9,6 +9,7 @@
 <table class="table">
     <tr>
         <th>Day</th>
+        <th>UserID</th>
         <th>Monday</th>
         <th>Tuesday</th>
         <th>Wednesday</th>
@@ -18,10 +19,11 @@
         <th>Sunday</th>
     </tr>
 
-    @foreach (var Schedule in @Model)
+    @foreach (var schedule in @Model)
     {
         <tr>
-            <td><a href=/Schedule/ViewSchedule/@schedule.Day>@schedule.Day</a></td>
+            <td><a href=/Schedule/ViewSchedule/@schedule.UserID>@schedule.UserID</a></td>
+            <td>@schedule.Day</td>
             <td>@schedule.Monday</td>
             <td>@schedule.Tuesday</td>
             <td>@schedule.Wednesday</td>
